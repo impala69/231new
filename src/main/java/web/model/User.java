@@ -5,18 +5,31 @@ import javax.persistence.*;
 @Entity
 @Table(name = "users")
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
+    //Везде поменял тип с Integer на Long, так как выскакивала ошибка exception is org.hibernate.
+    //exception.GenericJDBCException: could not execute statement, однако я накосячил при создании таблицы
+    //в воркбенче, колонку с айди надо было пометить как Auto Increment о чем я благополучно забыл, так
+    //что может интеджер тоже пойдет, но он не примитив а обертка т.ч хз, и на будущее айди всегда пиши лонг,
+    //как и возвраст в байтах
 
-    @Column(name = "name")
+    @Column(name = "NAME")
     private String name;
 
-    @Column(name = "lastName")
+    @Column(name = "LAST_NAME")
     private String lastName;
 
-    @Column(name = "email")
+    @Column(name = "EMAIL")
     private String email;
+
+    public User(Long id, String name, String lastName, String email) {
+        this.id = id;
+        this.name = name;
+        this.lastName = lastName;
+        this.email = email;
+    }
 
     public User() {
     }
@@ -45,11 +58,11 @@ public class User {
         this.email = email;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

@@ -19,7 +19,7 @@
         <td th:text="${user.getId()}">id</td>
 
         <td>
-            <a th:href = "@{/{id}/edit(id = ${user.getId()})}" th:text = "${user.getFirstName}"></a>
+            <a th:href = "@{/{id}/editPage(id = ${user.getId()})}" th:text = "${user.getName}"></a>
         </td>
         <td th:text="${user.getLastName()}">lastName</td>
         <td th:text="${user.getEmail()}">email</td>
@@ -27,7 +27,8 @@
     </tbody>
 </table>
 
-<center> <form th:method="GET" th:action="@{/newuser}">
+<center> <form th:method="GET" th:action="@{/edit}">
+<!--    пути поменял -->
     <input type = "submit" value="add user"> </form>
 </center>
 </body>
