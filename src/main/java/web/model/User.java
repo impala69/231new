@@ -9,11 +9,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    //Везде поменял тип с Integer на Long, так как выскакивала ошибка exception is org.hibernate.
-    //exception.GenericJDBCException: could not execute statement, однако я накосячил при создании таблицы
-    //в воркбенче, колонку с айди надо было пометить как Auto Increment о чем я благополучно забыл, так
-    //что может интеджер тоже пойдет, но он не примитив а обертка т.ч хз, и на будущее айди всегда пиши лонг,
-    //как и возвраст в байтах
+
 
     @Column(name = "NAME")
     private String name;

@@ -27,7 +27,6 @@ import java.util.Properties;
 @PropertySource(value = "classpath:db.properties")
 public class HibernateConfig {
 
-    // всякую шоблу удалил лишнюю, чето оставил
     @Autowired
     private Environment environment;
 
@@ -42,7 +41,7 @@ public class HibernateConfig {
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-       // BasicDataSource поменял на DriverManagerDataSource
+       // BasicDataSource  /DriverManagerDataSource
         dataSource.setDriverClassName(environment.getRequiredProperty("db.driverClassName"));
         dataSource.setUrl(environment.getRequiredProperty("db.url"));
         dataSource.setUsername(environment.getRequiredProperty("db.user"));

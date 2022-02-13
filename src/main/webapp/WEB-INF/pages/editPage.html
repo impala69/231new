@@ -8,7 +8,6 @@
 <center><form th:method="PATCH" th:action="@{/{id}(id=${user.getId()})}" th:object="${user}">
     <label for="name">Enter name</label>
     <input type="text" th:field="*{name}" id="name">
-<!--    поменял firstName на name, т.к в твоей модели поле name-->
     <br/>
     <label for="lastName">Enter lastname</label>
     <input type="text" th:field="*{lastName}" id="lastName">

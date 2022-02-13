@@ -13,7 +13,6 @@ import java.util.List;
 @Controller
 @RequestMapping("/")
 public class MainController {
-    // всякую хрень поудалял и комментыыыы уууу бля...
     @Autowired
     private UserService userService;
 
@@ -43,16 +42,15 @@ public class MainController {
         return modelAndView;
     }
 
-    @GetMapping(value = "/edit") // add поменял на edit (пути)
+    @GetMapping(value = "/edit")
     public ModelAndView addPage() {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("user", new User()); // добавил создание нового юзера,
-        // без нее не создашь нового пиздюка (не отобразятся поля заполнения)
+        modelAndView.addObject("user", new User());
         modelAndView.setViewName("edit");
         return modelAndView;
     }
 
-    @PostMapping(value = "/user") //  поменял на user (пути)
+    @PostMapping(value = "/user")
     public ModelAndView addUser(@ModelAttribute("user") User user) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/user");

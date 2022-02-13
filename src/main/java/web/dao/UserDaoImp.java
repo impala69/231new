@@ -16,7 +16,7 @@ public class UserDaoImp implements UserDao {
     @Override
     public List<User> allUsers() {
         return entityManager.createQuery("from User").getResultList();
-    } //добавил зависимость в пом файл hibernate-entitymanager
+    } //hibernate-entitymanager
 
     @Override
     public void add(User user) {
@@ -32,7 +32,7 @@ public class UserDaoImp implements UserDao {
     public void edit(User user) {
         user.setName(user.getName());
         user.setLastName(user.getLastName());
-        user.setEmail(user.getEmail()); //сет заменил с setName на setEmail
+        user.setEmail(user.getEmail());
         entityManager.merge(user);
     }
 
