@@ -5,29 +5,41 @@ import javax.persistence.*;
 @Entity
 @Table(name = "users")
 public class User {
-
     @Id
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-
-    @Column(name = "NAME")
+    private int id;
+    @Column(name = "name")
+//    @NotNull(message = "Поле с имененм не должно быть пустым")
+//    @Size(min = 2, max = 30, message = "Имя должно содерать больше одного символа")
     private String name;
-
-    @Column(name = "LAST_NAME")
+    @Column(name = "lastName")
+//    @NotNull(message = "Поле с фамилией не должно быть пустым")
     private String lastName;
-
-    @Column(name = "EMAIL")
+    @Column(name = "email")
+//    @NotNull(message = "Поле с email не должно быть пустым")
     private String email;
+    @Column(name = "phoneNumber")
+    // @NotNull(message = "Поле с номером телефона не должно быть пустым")
+    private String phoneNumber;
 
-    public User(Long id, String name, String lastName, String email) {
-        this.id = id;
+    public User(String name, String lastName, String email, String phoneNumber) {
         this.name = name;
         this.lastName = lastName;
         this.email = email;
+        this.phoneNumber = phoneNumber;
     }
 
     public User() {
+
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -54,21 +66,11 @@ public class User {
         this.email = email;
     }
 
-    public Long getId() {
-        return id;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                '}';
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 }
